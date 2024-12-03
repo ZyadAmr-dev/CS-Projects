@@ -1,0 +1,26 @@
+declare
+proc {CreateRoom RoomNumber RoomType Price Availability ?Room}
+   Room = room(roomNumber: RoomNumber
+               roomType: RoomType
+               price: Price
+               availability: Availability)
+end
+
+fun {CheckRoom Room}
+   if Room.availability == true then
+      {Show 'room is Available'}
+   else
+      {Show 'room is not Available'}
+   end
+end
+
+declare
+Room1 Room2 Room3
+{CreateRoom 101 'single' 100 true Room1}
+{CreateRoom 102 'double' 150 false Room2}
+{CreateRoom 103 'suite' 250 true Room3}
+
+{Show Room1.roomNumber}
+{Show Room2.roomType}   
+{CheckRoom Room1}  
+{CheckRoom Room2}
